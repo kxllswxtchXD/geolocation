@@ -1,10 +1,6 @@
 import Image from 'next/image'
 import map from '../public/map.svg'
-import { Layout } from '@vercel/examples-ui'
 
-// Forward properties from `middleware.ts`
-// When support for configuring gSSP to use Edge Functions lands,
-// We could add that logic here directly.
 export const getServerSideProps = ({ query }) => ({
   props: query,
 })
@@ -26,33 +22,6 @@ export default function Index({
         <Image alt="World Map" src={map} fill={true} quality={100} />
       </div>
       <main className="flex flex-col items-center flex-1 px-4 sm:px-20 text-center z-10 pt-8 sm:pt-20">
-        <h1 className="text-3xl sm:text-5xl font-bold">Geolocation</h1>
-        <p className="mt-4 text-lg sm:text-xl text-gray-700">
-          Show localized content based on headers
-        </p>
-        <a
-          className="flex items-center mt-4 text-md sm:text-lg text-blue-500 hover:underline"
-          href="https://vercel.com/docs/edge-network/headers#request-headers?utm_source=geo-ip-demo&utm_campaign=geo-ip-demo"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Documentation
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
-            stroke="currentColor"
-            className="ml-1"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            shapeRendering="geometricPrecision"
-          >
-            <path d="M5 12h14" />
-            <path d="M12 5l7 7-7 7" />
-          </svg>
-        </a>
         <section className="border border-gray-300 bg-white rounded-lg shadow-lg mt-16 w-full hover:shadow-2xl transition">
           <div className="p-4 flex justify-center items-between border-b">
             <div className="self-center">
@@ -60,7 +29,6 @@ export default function Index({
                 alt={`${country} flag`}
                 className="rounded-full"
                 src={`https://flagcdn.com/96x72/${country.toLowerCase()}.png`}
-                // src={`https://flagcdn.com/${country.toLowerCase()}.svg`}
                 width={32}
                 height={32}
               />
@@ -104,4 +72,4 @@ export default function Index({
   )
 }
 
-Index.Layout = Layout
+Index

@@ -7,8 +7,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const Layout = getLayout<LayoutProps>(Component)
 
   return (
-    <Layout title="Geolocation" path="edge-middleware/geolocation">
+    <main>
+      <head>
+        <title>Geolocation</title>
+      </head>
       <Component {...pageProps} />
-    </Layout>
+    </main>
   )
 }
